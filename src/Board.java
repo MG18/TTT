@@ -1,17 +1,12 @@
-import jdk.incubator.vector.VectorOperators;
 
-import java.util.Scanner;
 
 public class Board {
     String[][] field = new String[3][3];
-    private String player1;
-    private String player2;
-    private Scanner scanner;
 
-    public Board (String player1, String player2) {
-        this.player1 = player1;
-        this.player2 = player2;
-        this.scanner = new Scanner(System.in);
+
+    public Board () {
+        this.field = new String[3][3];
+
     }
     public void setSymbol(int number, String symbol) {
         switch(number){
@@ -44,15 +39,112 @@ public class Board {
         }
     }
 
-    public String[][] getField() {
-        return field;
+    public String getField(int number) {
+        int i = number / 3;
+        int j = number % 3;
+        return field[i][j];
     }
 
-    public String getPlayer1() {
-        return player1;
+
+    public boolean checkWin(){
+
+        if(field[0][0].equals("X") && field[0][1].equals("X") && field[0][2].equals("X")) {
+            System.out.println("X wins!");
+            return true;
+        }
+
+        if(field[1][0].equals("X") && field[1][1].equals("X") && field[1][2].equals("X")) {
+            System.out.println("X wins!");
+            return true;
+        }
+
+        if(field[2][0].equals("X") && field[2][1].equals("X") && field[2][2].equals("X")) {
+            System.out.println("X wins!");
+            return true;
+        }
+
+        if(field[0][0].equals("X") && field[0][1].equals("X") && field[0][2].equals("X")) {
+            System.out.println("X wins!");
+            return true;
+        }
+
+        if(field[1][0].equals("X") && field[1][1].equals("X") && field[1][2].equals("X")) {
+            System.out.println("X wins!");
+            return true;
+        }
+
+        if(field[2][0].equals("X") && field[2][1].equals("X") && field[2][2].equals("X")) {
+            System.out.println("X wins!");
+            return true;
+        }
+
+        if(field[0][0].equals("X") && field[1][1].equals("X") && field[2][2].equals("X")) {
+            System.out.println("X wins!");
+            return true;
+        }
+
+        if(field[0][2].equals("X") && field[1][1].equals("X") && field[2][0].equals("X")) {
+            System.out.println("X wins!");
+            return true;
+        }
+
+
+        if(field[0][0].equals("O") && field[0][1].equals("O") && field[0][2].equals("O")) {
+            System.out.println("O wins!");
+            return true;
+        }
+
+        if(field[1][0].equals("O") && field[1][1].equals("O") && field[1][2].equals("O")) {
+            System.out.println("O wins!");
+            return true;
+        }
+
+        if(field[2][0].equals("O") && field[2][1].equals("O") && field[2][2].equals("O")) {
+            System.out.println("O wins!");
+            return true;
+        }
+
+        if(field[0][0].equals("O") && field[0][1].equals("O") && field[0][2].equals("O")) {
+            System.out.println("O wins!");
+            return true;
+        }
+
+        if(field[1][0].equals("O") && field[1][1].equals("O") && field[1][2].equals("o")) {
+            System.out.println("O wins!");
+            return true;
+        }
+
+        if(field[2][0].equals("O") && field[2][1].equals("O") && field[2][2].equals("O")) {
+            System.out.println("O wins!");
+            return true;
+        }
+
+        if(field[0][0].equals("O") && field[1][1].equals("O") && field[2][2].equals("O")) {
+            System.out.println("O wins!");
+            return true;
+        }
+
+        if(field[0][2].equals("O") && field[1][1].equals("O") && field[2][0].equals("O")) {
+            System.out.println("O wins!");
+            return true;
+        }
+        return false;
     }
 
-    public String getPlayer2() {
-        return player2;
+    public boolean checkDraw(){
+        boolean flag = false;
+        for(int i = 0; i < 3; i++) {
+            for(int j = 0; j < 3; j++) {
+                if("".equals(field[i][j].trim()) || field[i][j] == null) {
+                    flag = true;
+                }
+            }
+        }
+        if(!checkWin() && !flag){
+            return true;
+        }
+        return false;
     }
+
+
 }

@@ -17,6 +17,7 @@ public class Logic {
         boolean win = false;
         boolean isGerman = false;
         boolean isNumber = false;
+        String symbol = "X";
         while(!draw || !win){
             output.outputNextMove(isGerman);
             input.getUserInput();
@@ -25,6 +26,10 @@ public class Logic {
             if(input.checkUserInputNumber(input.getCurrentInput())){
                 isNumber = false;
             }
+            if(isNumber){
+                board.setSymbol(Integer.parseInt(input.getCurrentInput()), symbol);
+            }
+            if(!is)
         }
     }
 

@@ -1,21 +1,31 @@
 public class Logic {
-    private Board board;
 
-    public Logic(Board board) {
-        this.board = board;
-    }
 
 
     public static void main(String[] args) {
-        String[][] s = new String[2][2];
-        s[1][1] = "";
-        //System.out.println(s[0][0]);
-        System.out.println(s[1][1]);
+        Logic logic = new Logic();
+        logic.startGame();
 
 
     }
 
-    public boolean checkFieldFree(){
-        return true;
+    public void startGame(){
+        Board board = new Board();
+        Output output = new Output(board);
+        Input input = new Input();
+        boolean draw = false;
+        boolean win = false;
+        boolean isGerman = false;
+        boolean isNumber = false;
+        while(!draw || !win){
+            output.outputNextMove(isGerman);
+            input.getUserInput();
+            isNumber = input.checkUserInputNumber(input.getCurrentInput());
+            isGerman = input.checkUserInputGerman(input.getCurrentInput());
+            if(input.checkUserInputNumber(input.getCurrentInput())){
+                isNumber = false;
+            }
+        }
     }
+
 }

@@ -7,6 +7,12 @@ public class Board {
     public Board () {
         this.field = new String[3][3];
 
+        for(int i = 0; i < 3; i++) {
+            for(int j = 0; j < 3; j++) {
+                field[i][j] = " ";
+            }
+        }
+
     }
     public void setSymbol(int number, String symbol) {
         switch(number){

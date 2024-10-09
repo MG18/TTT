@@ -2,15 +2,19 @@ import java.util.Scanner;
 
 public class Input {
     private Scanner scanner;
-    private String input;
+    private String currentInput;
 
     public Input() {
         scanner = new Scanner(System.in);
     }
-    public String getUserInput() {
-        input = scanner.nextLine();
-        return input;
+    public void getUserInput() {
+        currentInput = scanner.nextLine();
     }
+
+    public String getCurrentInput() {
+        return currentInput;
+    }
+
     public boolean checkUserInputNumber(String input) {
 
         if(input != null && Integer.parseInt(input) <= 9 && Integer.parseInt(input) >= 0){
